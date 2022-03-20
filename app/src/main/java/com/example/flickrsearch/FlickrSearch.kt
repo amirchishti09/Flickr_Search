@@ -1,0 +1,8 @@
+package com.example.flickrsearch
+
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class FlickrSearch: Application() {
+}
