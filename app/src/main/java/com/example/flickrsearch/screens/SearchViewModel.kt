@@ -32,7 +32,9 @@ class SearchViewModel @Inject constructor(
 
     fun searchFlickerImages(query: String) {
         viewModelScope.launch {
-            repository.searchImages(query = query).cachedIn(viewModelScope).collect {
+            repository.searchImages(query = query)
+                .cachedIn(viewModelScope)
+                .collect {
                 _searchedImages.value = it
             }
         }

@@ -14,11 +14,11 @@ class SearchPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FlickrImage> {
         val currentPage = params.key ?: 1
         return try {
-            val response = flickrApi.searchPhotos(FLICKR_API_KEY, query)
-            val endOfPaginationReached = response.photos.isEmpty()
-            if (response.photos.isNotEmpty()) {
+            val response = flickrApi.searchPhotos(query)
+            val endOfPaginationReached = response.photos.images.isEmpty()
+            if (response.photos.images.isNotEmpty()) {
                 LoadResult.Page(
-                    data = response.photos,
+                    data = response.photos.images,
                     prevKey = if (currentPage == 1) null else currentPage - 1,
                     nextKey = if (endOfPaginationReached) null else currentPage + 1
                 )
