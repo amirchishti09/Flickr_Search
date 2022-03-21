@@ -4,7 +4,6 @@ import com.example.flickrsearch.model.FlickrImage
 import com.example.flickrsearch.model.PhotoEnvelop
 import com.example.flickrsearch.util.Constants.FLICKR_API_KEY
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface FlickrApi {
