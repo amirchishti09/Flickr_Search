@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
@@ -44,7 +43,6 @@ fun FlickrItem(flickrImage: FlickrImage) {
         error(R.drawable.ic_image_holder)
         placeholder(R.drawable.ic_image_holder)
     }
-    val context = LocalContext.current
     Box(
         modifier = Modifier
             .height(200.dp)
