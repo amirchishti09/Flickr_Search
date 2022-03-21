@@ -31,6 +31,10 @@ object NetworkModule {
     @Singleton
     fun getRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val json = Json {
+            encodeDefaults = true
+            isLenient = true
+            prettyPrint = true
+            explicitNulls = false
             ignoreUnknownKeys = true
         }
         val responseContent = MediaType.get("application/json")

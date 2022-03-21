@@ -5,11 +5,11 @@ import com.example.flickrsearch.model.PhotoEnvelop
 import com.example.flickrsearch.util.Constants.FLICKR_API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface FlickrApi {
-    @GET("/?method=flickr.photos.search&api_key={apiKey}&format=json&nojsoncallback=1&text={input}")
+    @GET("https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=$FLICKR_API_KEY&format=json&nojsoncallback=1")
     suspend fun searchPhotos(
-        @Path(value = "api_key", encoded = true) apiKey: String,
-        @Path(value = "text", encoded = true) input: String
+        @Query(value = "text", encoded = true) input: String
     ): PhotoEnvelop
 }
